@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Image } from "react-native";
 import { Container, Content, Text, Thumbnail } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
-const LoadingImage = require("../assets/load.gif");
+const LoadingImage = require("../assets/gg.gif");
 export default function Loading() {
   return (
     <Container style={styles.container}>

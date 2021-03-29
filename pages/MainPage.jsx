@@ -11,8 +11,10 @@ import {
 } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import CardComponent from "../components/CardComponent";
+import { ScrollView } from "react-native-gesture-handler";
+const data = require("../data.json");
 
-const bImage = require("../assets/ride.png");
+const bImage = require("../assets/ss.gif");
 
 export default function MainPage({ navigation }) {
   useEffect(() => {
@@ -24,10 +26,14 @@ export default function MainPage({ navigation }) {
       <ImageBackground source={bImage} style={styles.backgroundImage}>
         <Content>
           <Text style={styles.title}>
-            <Text style={styles.highlite}>오늘, </Text>기록
+            <Text style={styles.highlite}>오늘,</Text>기록
           </Text>
         </Content>
-        <CardComponent />
+        {data.diary.map((content, i) => {
+          return (
+            <CardComponent content={content} key={i} navigation={navigation} />
+          );
+        })}
       </ImageBackground>
     </Container>
   );
@@ -57,7 +63,7 @@ const styles = StyleSheet.create({
   highlite: {
     fontSize: 25,
     fontWeight: "700",
-    color: "#DC83D6",
+    color: "#BEEDA4",
   },
   label: {
     color: "#fff",
