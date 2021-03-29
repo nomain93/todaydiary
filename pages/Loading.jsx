@@ -35,6 +35,6 @@ const styles = StyleSheet.create({
   },
   Image: {
     width: 500,
-    height: 500,
+    height: 1000,
   },
 });
