@@ -6,11 +6,18 @@ import StackNavigator from "./navigations/StackNavigator";
 
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
+import apiKeys from "./config/key";
 
 import Loading from "./pages/Loading";
+import * as firebase from "firebase";
 
 export default function App() {
   const [ready, setReady] = useState(false);
+
+  if (!firebase.apps.length) {
+    console.log("Connected with Firebase");
+    firebase.initializeApp(apiKeys.firebaseConfig);
+  }
 
   const loadFont = () => {
     setTimeout(async () => {

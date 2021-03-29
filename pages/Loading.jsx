@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Image } from "react-native";
 import { Container, Content, Text, Thumbnail } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
-const LoadingImage = require("../assets/gg.gif");
+const LoadingImage = require("../assets/happy.gif");
 export default function Loading() {
   return (
     <Container style={styles.container}>
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   Image: {
-    width: 500,
-    height: 1000,
+    width: 400,
+    height: 500,
   },
 });

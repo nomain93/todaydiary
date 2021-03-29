@@ -14,7 +14,7 @@ import CardComponent from "../components/CardComponent";
 import { ScrollView } from "react-native-gesture-handler";
 const data = require("../data.json");
 
-const bImage = require("../assets/ss.gif");
+const backImage = require("../assets/ss.gif");
 
 export default function MainPage({ navigation }) {
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function MainPage({ navigation }) {
   }, [navigation]);
   return (
     <Container style={styles.container}>
-      <ImageBackground source={bImage} style={styles.backgroundImage}>
+      <ImageBackground source={backImage} style={styles.backgroundImage}>
         <Content>
           <Text style={styles.title}>
             <Text style={styles.highlite}>오늘,</Text>기록
