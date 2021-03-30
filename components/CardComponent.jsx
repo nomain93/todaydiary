@@ -5,6 +5,28 @@ import { Icon, Text, Card, CardItem } from "native-base";
 import { ScrollView } from "react-native-gesture-handler";
 
 export default function CardComponent({ navigation, content }) {
+  function dateFormat(d) {
+    let date = new Date(d);
+    let year = date.getFullYear();
+
+    let month = date.getMonth() + 1;
+    if (month < 10) month = "0" + month;
+
+    let day = date.getDate();
+    if (day < 10) day = "0" + day;
+
+    let hour = date.getHours();
+    if (hour < 10) hour = "0" + hour;
+
+    let min = date.getMinutes();
+    if (min < 10) min = "0" + min;
+
+    let sec = date.getSeconds();
+    if (sec < 10) sec = "0" + sec;
+
+    return year + "-" + month + "-" + day;
+  }
+
   return (
     <TouchableOpacity
       onPress={() => {
@@ -16,7 +38,9 @@ export default function CardComponent({ navigation, content }) {
           <Text numberOfLines={1} style={styles.title}>
             {content.title}
           </Text>
-          <Text style={[styles.grey, styles.writer]}>{content.desc}</Text>
+          <Text style={[styles.grey, styles.writer]}>
+            {dateFormat(content.date)}
+          </Text>
         </CardItem>
       </Card>
     </TouchableOpacity>

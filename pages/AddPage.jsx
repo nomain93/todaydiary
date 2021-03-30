@@ -124,7 +124,7 @@ export default function AddPage({ navigation }) {
             <Textarea
               rowSpan={15}
               bordered
-              placeholder="오늘 하루은 어떤 하루 였나요?"
+              placeholder="오늘 하루는 어땠나요?"
               placeholderTextColor="white"
               value={content}
               style={styles.content}
