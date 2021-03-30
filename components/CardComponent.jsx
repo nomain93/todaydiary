@@ -36,7 +36,7 @@ export default function CardComponent({ navigation, content }) {
       <Card style={styles.card} transparent>
         <CardItem
           style={{
-            marginTop: -10,
+            marginTop: 10,
             backgroundColor: "#FFFBC4",
             borderColor: "pink",
             borderWidth: 2.5,
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   container: { alignItems: "center", alignSelf: "center" },
   card: {
     width: 400,
-    height: 60,
+    height: 100,
     alignSelf: "center",
   },
   image: { height: 200, width: "100%", borderRadius: 10 },

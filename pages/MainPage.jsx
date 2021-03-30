@@ -63,7 +63,7 @@ export default function MainPage({ navigation }) {
 
 const styles = StyleSheet.create({
   scroll: {
-    height: 420,
+    height: 400,
   },
   backgroundImage: {
     width: "100%",
