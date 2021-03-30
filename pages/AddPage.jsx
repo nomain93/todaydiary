@@ -99,7 +99,15 @@ export default function AddPage({ navigation }) {
             }}
             onPress={showDatepicker}
             title="Day">
-            <Text style={{ flex: 1, textAlign: "center" }}>DAY</Text>
+            <Text
+              style={{
+                flex: 1,
+                textAlign: "center",
+                fontFamily: "BMJUA",
+                fontSize: 20,
+              }}>
+              DAY
+            </Text>
           </Button>
           {show && (
             <DateTimePicker
@@ -132,7 +140,7 @@ export default function AddPage({ navigation }) {
             />
           </Form>
           <Button full style={styles.uploadButton} onPress={() => upload()}>
-            <Text>등록</Text>
+            <Text style={{ fontFamily: "BMJUA", fontSize: 15 }}>등록</Text>
           </Button>
         </Content>
       </ImageBackground>
@@ -142,11 +150,11 @@ export default function AddPage({ navigation }) {
 
 const styles = StyleSheet.create({
   addtitle: {
-    fontWeight: "bold",
     textAlign: "center",
     color: "white",
     fontSize: 20,
     marginTop: 70,
+    fontFamily: "BMJUA",
   },
   Container: {
     flex: 1,
@@ -175,7 +183,7 @@ const styles = StyleSheet.create({
     width: "90%",
     alignSelf: "center",
     marginTop: 10,
-    backgroundColor: "hotpink",
+    backgroundColor: "blue",
   },
 
   progress: {

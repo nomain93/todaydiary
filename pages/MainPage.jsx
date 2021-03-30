@@ -34,7 +34,14 @@ export default function MainPage({ navigation }) {
     <Container style={styles.container}>
       <ImageBackground source={backImage} style={styles.backgroundImage}>
         <Content>
-          <Text style={styles.title}>
+          <Text
+            style={{
+              marginTop: 50,
+              fontSize: 50,
+              color: "#fff",
+              textAlign: "center",
+              fontFamily: "HiMelody",
+            }}>
             <Text style={styles.highlite}>오늘,</Text>기록
           </Text>
         </Content>
@@ -77,8 +84,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   highlite: {
-    fontSize: 25,
-    fontWeight: "700",
+    fontSize: 50,
+    fontFamily: "HiMelody",
     color: "#BEEDA4",
   },
   label: {

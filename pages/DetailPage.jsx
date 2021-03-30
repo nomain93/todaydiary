@@ -43,7 +43,7 @@ export default function DetailPage({ navigation, route }) {
       title: "오늘,일기",
       headerTitleStyle: {
         textAlign: "center",
-        fontWeight: "700",
+        fontFamily: "BMJUA",
       },
       headerStyle: {
         backgroundColor: "#fff",
@@ -78,7 +78,7 @@ export default function DetailPage({ navigation, route }) {
           <Text
             style={{
               fontSize: 25,
-              fontWeight: "700",
+              fontFamily: "BMJUA",
               color: "#333",
               alignSelf: "center",
               marginLeft: 25,
@@ -88,12 +88,12 @@ export default function DetailPage({ navigation, route }) {
           </Text>
           <Text
             style={{
-              fontSize: 15,
-              fontWeight: "700",
-              color: "grey",
+              fontSize: 20,
+              fontFamily: "NanumPen",
+              color: "gray",
               alignSelf: "center",
               marginLeft: 25,
-              marginTop: 20,
+              marginTop: 50,
             }}>
             {content.desc}
           </Text>

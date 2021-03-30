@@ -22,7 +22,11 @@ export default function App() {
 
   const loadFont = () => {
     setTimeout(async () => {
-      await Font.loadAsync({});
+      await Font.loadAsync({
+        BMJUA: require("./assets/fonts/BMJUA.ttf"),
+        NanumPen: require("./assets/fonts/NanumPen.ttf"),
+        HiMelody: require("./assets/fonts/HiMelody-Regular.ttf"),
+      });
       await setReady(true);
     }, 2000);
   };

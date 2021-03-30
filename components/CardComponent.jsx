@@ -34,8 +34,21 @@ export default function CardComponent({ navigation, content }) {
       }}
       style={styles.container}>
       <Card style={styles.card} transparent>
-        <CardItem style={{ marginTop: -10, backgroundColor: "#FFFBC4" }}>
-          <Text numberOfLines={1} style={styles.title}>
+        <CardItem
+          style={{
+            marginTop: -10,
+            backgroundColor: "#FFFBC4",
+            borderColor: "pink",
+            borderWidth: 2.5,
+            borderRadius: 30,
+          }}>
+          <Text
+            numberOfLines={1}
+            style={{
+              fontFamily: "BMJUA",
+              fontSize: 15,
+              marginLeft: 15,
+            }}>
             {content.title}
           </Text>
           <Text style={[styles.grey, styles.writer]}>
@@ -57,5 +70,10 @@ const styles = StyleSheet.create({
   image: { height: 200, width: "100%", borderRadius: 10 },
   grey: { color: "grey" },
   writer: { fontSize: 12, color: "grey", marginLeft: 20 },
-  title: { fontWeight: "700", fontSize: 15, marginLeft: 50 },
+  title: {
+    fontWeight: "700",
+    fontSize: 15,
+    marginLeft: 50,
+    fontFamily: "BMJUA",
+  },
 });
