@@ -24,6 +24,7 @@ import {
   Textarea,
 } from "native-base";
 const background = require("../assets/ride.png");
+const loading = require("../assets/load.gif");
 const data = require("../data.json");
 const imageWidth = Dimensions.get("window").width / 3;
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -43,6 +44,8 @@ export default function AddPage() {
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
 
+  const [progress, setProgress] = useState(false);
+
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
     setShow(Platform.OS === "ios");
@@ -60,23 +63,28 @@ export default function AddPage() {
 
   const upload = async () => {
     console.log("업로드 준비중!");
+    await setProgress(true);
     let data = {
       title: title,
       desc: content,
       date: date.getTime(),
     };
 
-    let result = addDiary(data);
+    let result = await addDiary(data);
     if (result) {
-      Alert.alert("글이 성공적으로 등록되었습니다!");
+      await Alert.alert("글이 성공적으로 등록되었습니다!");
       setTitle("");
       setContent("");
+      setProgress(false);
     }
   };
 
   return (
     <Container>
       <ImageBackground source={background} style={styles.background}>
+        {progress == false ? null : (
+          <Image source={loading} style={styles.progress} />
+        )}
         <Text style={styles.addtitle}>{`오늘,   쓰다`}</Text>
         <Content contentContainerStyle={styles.Container}>
           <Button
@@ -138,11 +146,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "white",
     fontSize: 20,
-    marginTop: 15,
+    marginTop: 30,
   },
   Container: {
     flex: 1,
-    marginTop: "40%",
+    marginTop: "30%",
   },
   background: {
     width: "100%",
@@ -185,5 +193,15 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 10,
     backgroundColor: "hotpink",
+  },
+
+  progress: {
+    width: 100,
+    height: 100,
+    borderRadius: 100,
+    position: "absolute",
+    top: "50%",
+    alignSelf: "center",
+    zIndex: 2,
   },
 });
