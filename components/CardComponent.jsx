@@ -12,7 +12,7 @@ export default function CardComponent({ navigation, content }) {
       }}
       style={styles.container}>
       <Card style={styles.card} transparent>
-        <CardItem style={{ marginTop: -10, backgroundColor: "pink" }}>
+        <CardItem style={{ marginTop: -10, backgroundColor: "#FFFBC4" }}>
           <Text numberOfLines={1} style={styles.title}>
             {content.title}
           </Text>

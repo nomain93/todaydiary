@@ -85,7 +85,7 @@ export default function AddPage({ navigation }) {
         {progress == false ? null : (
           <Thumbnail Circular large source={loading} style={styles.progress} />
         )}
-        <Text style={styles.addtitle}>{`오늘,   쓰다`}</Text>
+        <Text style={styles.addtitle}>{`오늘,쓰다`}</Text>
         <Content contentContainerStyle={styles.Container}>
           <Button
             style={{
@@ -146,11 +146,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "white",
     fontSize: 20,
-    marginTop: 30,
+    marginTop: 70,
   },
   Container: {
     flex: 1,
-    marginTop: "30%",
+    marginTop: "20%",
   },
   background: {
     width: "100%",

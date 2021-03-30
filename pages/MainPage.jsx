@@ -56,7 +56,7 @@ export default function MainPage({ navigation }) {
 
 const styles = StyleSheet.create({
   scroll: {
-    height: 350,
+    height: 420,
   },
   backgroundImage: {
     width: "100%",
@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "rgba(52, 52, 52, 0.5)",
     margin: 20,
     borderRadius: 20,
   },
