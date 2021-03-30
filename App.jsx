@@ -12,6 +12,7 @@ import Loading from "./pages/Loading";
 import * as firebase from "firebase";
 
 export default function App() {
+  console.disableYellowBox = true;
   const [ready, setReady] = useState(false);
 
   if (!firebase.apps.length) {
