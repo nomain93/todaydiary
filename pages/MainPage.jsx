@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, View, Alert, ImageBackground } from "react-native";
 import {
   Container,
@@ -12,15 +12,24 @@ import {
 import { Col, Row, Grid } from "react-native-easy-grid";
 import CardComponent from "../components/CardComponent";
 import { ScrollView } from "react-native-gesture-handler";
+import { getData } from "../config/firebaseFunctions";
 const data = require("../data.json");
 
 const backImage = require("../assets/ss.gif");
 
 export default function MainPage({ navigation }) {
+  const [data, setData] = useState([]);
   useEffect(() => {
-    const unsubscrbie = navigation.addListener("focus", (e) => {});
-    return unsubscrbie;
-  }, [navigation]);
+    navigation.addListener("beforeRemove", (e) => {
+      e.preventDefault();
+    });
+    readyData();
+  }, []);
+  const readyData = async () => {
+    const data = await getData();
+    setData(data);
+  };
+
   return (
     <Container style={styles.container}>
       <ImageBackground source={backImage} style={styles.backgroundImage}>
@@ -29,18 +38,26 @@ export default function MainPage({ navigation }) {
             <Text style={styles.highlite}>오늘,</Text>기록
           </Text>
         </Content>
-        {data.diary.map((content, i) => {
-          return (
-            <CardComponent content={content} key={i} navigation={navigation} />
-          );
-        })}
+        <ScrollView style={styles.scroll}>
+          {data.map((content, i) => {
+            return (
+              <CardComponent
+                content={content}
+                key={i}
+                navigation={navigation}
+              />
+            );
+          })}
+        </ScrollView>
       </ImageBackground>
     </Container>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  scroll: {
+    height: 350,
+  },
   backgroundImage: {
     width: "100%",
     height: "100%",

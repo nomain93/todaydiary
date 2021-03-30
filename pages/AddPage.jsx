@@ -26,14 +26,13 @@ import {
 const background = require("../assets/ride.png");
 const loading = require("../assets/load.gif");
 const data = require("../data.json");
-const imageWidth = Dimensions.get("window").width / 3;
 import DateTimePicker from "@react-native-community/datetimepicker";
 import * as firebase from "firebase";
 import "firebase/firestore";
 
 import { addDiary } from "../config/firebaseFunctions";
 
-export default function AddPage() {
+export default function AddPage({ navigation }) {
   const [title, setTitle] = useState("");
   const [titleError, setTitleError] = useState("");
 
@@ -76,6 +75,7 @@ export default function AddPage() {
       setTitle("");
       setContent("");
       setProgress(false);
+      navigation.push("TabNavigator");
     }
   };
 
@@ -83,7 +83,7 @@ export default function AddPage() {
     <Container>
       <ImageBackground source={background} style={styles.background}>
         {progress == false ? null : (
-          <Image source={loading} style={styles.progress} />
+          <Thumbnail Circular large source={loading} style={styles.progress} />
         )}
         <Text style={styles.addtitle}>{`오늘,   쓰다`}</Text>
         <Content contentContainerStyle={styles.Container}>
@@ -156,24 +156,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-  imageUpload: {
-    borderWidth: 2,
-    borderRadius: 10,
-    borderColor: "grey",
-    borderStyle: "dashed",
-    width: "90%",
-    height: 200,
-    marginTop: 20,
-    alignSelf: "center",
-    alignItems: "center",
-  },
-  imageUploadPlus: {
-    textAlign: "center",
-    width: "100%",
-    fontSize: 90,
-    fontWeight: "300",
-    color: "grey",
-  },
+
   title: {
     marginTop: "100",
     width: "90%",
@@ -196,9 +179,6 @@ const styles = StyleSheet.create({
   },
 
   progress: {
-    width: 100,
-    height: 100,
-    borderRadius: 100,
     position: "absolute",
     top: "50%",
     alignSelf: "center",

@@ -16,7 +16,7 @@ export default function CardComponent({ navigation, content }) {
           <Text numberOfLines={1} style={styles.title}>
             {content.title}
           </Text>
-          <Text style={[styles.grey, styles.writer]}>{content.author}</Text>
+          <Text style={[styles.grey, styles.writer]}>{content.desc}</Text>
         </CardItem>
       </Card>
     </TouchableOpacity>

@@ -33,10 +33,10 @@ export default function DetailPage({ navigation, route }) {
     });
   }, []);
   const content = route.params.content;
-  const dImage = require("../assets/to.gif");
+  const dairyImage = require("../assets/to.gif");
   return (
     <Container>
-      <ImageBackground source={dImage} style={styles.backgroundImage}>
+      <ImageBackground source={dairyImage} style={styles.backgroundImage}>
         <Content
           contentContainerStyle={{
             alignItems: "center",
