@@ -1,5 +1,12 @@
 import React, { useEffect } from "react";
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Alert,
+  TouchableOpacity,
+} from "react-native";
 import {
   Container,
   Header,
@@ -15,6 +22,12 @@ import {
   Input,
   Thumbnail,
 } from "native-base";
+
+import * as firebase from "firebase";
+import "firebase/firestore";
+import { Entypo } from "@expo/vector-icons";
+
+import { diarydel } from "../config/firebaseFunctions";
 export default function DetailPage({ navigation, route }) {
   function dateFormat(d) {
     let date = new Date(d);
@@ -35,11 +48,10 @@ export default function DetailPage({ navigation, route }) {
     let sec = date.getSeconds();
     if (sec < 10) sec = "0" + sec;
 
+    const days = ["일", "월", "화", "수", "목", "금", "토"];
+    let dairyday = days[date.getDay()] + "요일";
 
-    const days = ['일', '월', '화', '수', '목', '금', '토'];
-    let dairyday = days[date.getDay()] + '요일';
-
-    return year + "-" + month + "-" + day +'  '+ '/' +'  '+ dairyday;
+    return year + "-" + month + "-" + day + "  " + "/" + "  " + dairyday;
   }
 
   useEffect(() => {
@@ -60,6 +72,16 @@ export default function DetailPage({ navigation, route }) {
   }, []);
   const content = route.params.content;
   const dairyImage = require("../assets/to.gif");
+
+  const del = async (content) => {
+    let delday = content.date;
+    let result = await diarydel(delday);
+    if (result) {
+      Alert.alert("삭제 완료!");
+      navigation.replace("TabNavigator");
+    }
+  };
+
   return (
     <Container>
       <ImageBackground source={dairyImage} style={styles.backgroundImage}>
@@ -68,10 +90,19 @@ export default function DetailPage({ navigation, route }) {
             alignItems: "center",
             marginTop: 150,
           }}>
+          <TouchableOpacity
+            style={{
+              alignSelf: "flex-end",
+              backgroundColor: "transparent",
+              marginTop: 8,
+            }}
+            onPress={() => del(content)}>
+            <Entypo name="paper-plane" size={30} color="black" />
+          </TouchableOpacity>
           <Text
             style={{
               fontSize: 10,
-              fontFamily:'BMJUA',
+              fontFamily: "BMJUA",
               color: "#333",
               alignSelf: "center",
               marginLeft: 25,

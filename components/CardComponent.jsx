@@ -59,6 +59,7 @@ export default function CardComponent({ navigation, content }) {
             {dateFormat(content.date)}
           </Text>
         </CardItem>
+        
       </Card>
     </TouchableOpacity>
   );

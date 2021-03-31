@@ -82,3 +82,17 @@ export async function getData() {
     return false;
   }
 }
+
+export async function diarydel(content) {
+  try {
+    const db = firebase.firestore();
+    await db
+      .collection("diary")
+      .doc(content + "D")
+      .delete();
+    return true;
+  } catch (err) {
+    console.log(err);
+    return false;
+  }
+}
