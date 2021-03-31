@@ -61,7 +61,15 @@ export default function AddPage({ navigation }) {
   };
 
   const upload = async () => {
-    console.log("업로드 준비중!");
+    if (title=='') {
+      Alert.alert('제목을 입력해주세요')
+      return false;
+    }
+
+    if(content == ""){
+      Alert.alert('내용을 입력해주세요')
+      return false;
+    }
     await setProgress(true);
     let data = {
       title: title,
@@ -71,13 +79,15 @@ export default function AddPage({ navigation }) {
 
     let result = await addDiary(data);
     if (result) {
-      await Alert.alert("글이 성공적으로 등록되었습니다!");
+      await Alert.alert("오늘 기록 완료!");
       setTitle("");
       setContent("");
       setProgress(false);
       navigation.push("TabNavigator");
     }
   };
+
+  
 
   return (
     <Container>

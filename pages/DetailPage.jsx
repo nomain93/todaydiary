@@ -35,7 +35,11 @@ export default function DetailPage({ navigation, route }) {
     let sec = date.getSeconds();
     if (sec < 10) sec = "0" + sec;
 
-    return year + "-" + month + "-" + day;
+
+    const days = ['일', '월', '화', '수', '목', '금', '토'];
+    let dairyday = days[date.getDay()] + '요일';
+
+    return year + "-" + month + "-" + day +'  '+ '/' +'  '+ dairyday;
   }
 
   useEffect(() => {
@@ -67,7 +71,7 @@ export default function DetailPage({ navigation, route }) {
           <Text
             style={{
               fontSize: 10,
-              fontWeight: "500",
+              fontFamily:'BMJUA',
               color: "#333",
               alignSelf: "center",
               marginLeft: 25,
@@ -79,7 +83,7 @@ export default function DetailPage({ navigation, route }) {
             style={{
               fontSize: 25,
               fontFamily: "BMJUA",
-              color: "#333",
+              color: "black",
               alignSelf: "center",
               marginLeft: 25,
               marginTop: 20,
