@@ -106,7 +106,7 @@ export default function DetailPage({ navigation, route }) {
               color: "#333",
               alignSelf: "center",
               marginLeft: 25,
-              marginTop: 20,
+              marginTop: 3,
             }}>
             {dateFormat(content.date)}
           </Text>
@@ -117,7 +117,7 @@ export default function DetailPage({ navigation, route }) {
               color: "black",
               alignSelf: "center",
               marginLeft: 25,
-              marginTop: 20,
+              marginTop: 7,
             }}>
             {content.title}
           </Text>
@@ -128,7 +128,7 @@ export default function DetailPage({ navigation, route }) {
               color: "gray",
               alignSelf: "center",
               marginLeft: 25,
-              marginTop: 50,
+              marginTop: 20,
             }}>
             {content.desc}
           </Text>

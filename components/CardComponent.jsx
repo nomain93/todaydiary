@@ -24,13 +24,12 @@ export default function CardComponent({ navigation, content }) {
     let sec = date.getSeconds();
     if (sec < 10) sec = "0" + sec;
 
-    const days = ['일', '월', '화', '수', '목', '금', '토'];
-    let dairyday = days[date.getDay()] + '요일';
+    const days = ["일", "월", "화", "수", "목", "금", "토"];
+    let dairyday = days[date.getDay()] + "요일";
 
-    return year + "-" + month + "-" + day +'  '+ '/' +'  '+dairyday;
+    return year + "-" + month + "-" + day + "  " + "/" + "  " + dairyday;
   }
 
-  
   return (
     <TouchableOpacity
       onPress={() => {
@@ -42,7 +41,7 @@ export default function CardComponent({ navigation, content }) {
           style={{
             marginTop: 10,
             backgroundColor: "#FFFBC4",
-            borderColor: "pink",
+            borderColor: "#B983D6",
             borderWidth: 2.5,
             borderRadius: 30,
           }}>
@@ -55,11 +54,10 @@ export default function CardComponent({ navigation, content }) {
             }}>
             {content.title}
           </Text>
-          <Text style={styles.grey, styles.date}>
+          <Text style={(styles.grey, styles.date)}>
             {dateFormat(content.date)}
           </Text>
         </CardItem>
-        
       </Card>
     </TouchableOpacity>
   );
@@ -74,7 +72,7 @@ const styles = StyleSheet.create({
   },
   image: { height: 200, width: "100%", borderRadius: 10 },
   grey: { color: "grey" },
-  date: { fontSize: 12, color: "grey", marginLeft: 20, fontFamily:'BMJUA' },
+  date: { fontSize: 12, color: "grey", marginLeft: 20, fontFamily: "BMJUA" },
   title: {
     fontWeight: "700",
     fontSize: 15,

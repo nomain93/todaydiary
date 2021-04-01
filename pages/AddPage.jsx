@@ -61,13 +61,13 @@ export default function AddPage({ navigation }) {
   };
 
   const upload = async () => {
-    if (title=='') {
-      Alert.alert('제목을 입력해주세요')
+    if (title == "") {
+      Alert.alert("제목을 입력해주세요");
       return false;
     }
 
-    if(content == ""){
-      Alert.alert('내용을 입력해주세요')
+    if (content == "") {
+      Alert.alert("내용을 입력해주세요");
       return false;
     }
     await setProgress(true);
@@ -86,8 +86,6 @@ export default function AddPage({ navigation }) {
       navigation.push("TabNavigator");
     }
   };
-
-  
 
   return (
     <Container>
